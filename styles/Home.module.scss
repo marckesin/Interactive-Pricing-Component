@@ -1,13 +1,21 @@
+$white: hsl(0, 0%, 100%);
+$very-pale-blue: hsl(230, 100%, 99%);
+$light-grayish-blue: hsl(224, 65%, 95%);
+$light-grayish-blue-1: hsl(223, 50%, 87%);
+$grayish-blue: hsl(225, 20%, 60%);
+$dark-desaturated-blue: hsl(227, 35%, 25%);
+
 .attribution {
   font-size: 1rem;
   text-align: center;
-}
-.attribution a {
-  color: #3e52a3;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
 }
 
 .card {
-  background-color: white;
+  background-color: $white;
   border-radius: 0.5rem;
   width: 100%;
   height: 30rem;
@@ -20,15 +28,15 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 0 2rem;
-  background: url("../public/bg-pattern.svg") no-repeat, #fafbff;
+  background: url("../public/bg-pattern.svg") no-repeat, $very-pale-blue;
 }
 
 .description {
-  color: #858fad;
+  color: $grayish-blue;
 }
 
 .heading {
-  color: #293356;
+  color: $dark-desaturated-blue;
   font-weight: 800;
 }
 
@@ -41,5 +49,3 @@
   width: 60%;
   margin: auto;
 }
-
-/*# sourceMappingURL=Home.module.css.map */

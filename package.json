@@ -4,10 +4,10 @@
   "description": "This is a solution to the: Interactive pricing component challenge on Frontend Mentor",
   "main": "index.js",
   "scripts": {
-      "dev": "next dev",
-      "build": "next build",
-      "start": "next start",
-      "lint": "next lint"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "12.1.1",
@@ -23,7 +23,10 @@
     "url": "git+https://github.com/marckesin/Interactive-Pricing-Component.git"
   },
   "keywords": [
-    "next.js"
+    "next.js",
+    "vercel",
+    "react",
+    "frontend-mentor"
   ],
   "author": "Ronaldo",
   "license": "MIT",
