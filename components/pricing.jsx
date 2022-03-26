@@ -1,5 +1,6 @@
 import styles from "../styles/Home.module.css";
 
+// Card pricing component
 export default function Pricing() {
   return (
     <div className={styles.card}>
