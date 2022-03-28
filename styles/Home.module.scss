@@ -15,10 +15,13 @@ $dark-desaturated-blue: hsl(227, 35%, 25%);
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: $white;
-  border-radius: 0.5rem;
+  border-radius: 0.65rem;
   width: 100%;
-  height: 30rem;
+  height: 26.5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
 
@@ -29,6 +32,7 @@ $dark-desaturated-blue: hsl(227, 35%, 25%);
   justify-content: space-between;
   padding: 0 2rem;
   background: url("../public/bg-pattern.svg") no-repeat, $very-pale-blue;
+  background-size: contain;
 }
 
 .description {
@@ -46,6 +50,16 @@ $dark-desaturated-blue: hsl(227, 35%, 25%);
 
 .pricing {
   text-align: center;
-  width: 60%;
+  width: 36rem;
   margin: auto;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 6rem 1.5rem;
+  }
+
+  .pricing {
+    width: auto;
+  }
 }

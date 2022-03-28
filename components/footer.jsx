@@ -7,7 +7,6 @@ export default function Footer() {
     <footer className={styles.attribution}>
       Challenge by{" "}
       <Link
-        className={styles.link}
         href="https://www.frontendmentor.io?ref=challenge"
         target="_blank"
         rel="noopener noreferrer"
@@ -16,7 +15,6 @@ export default function Footer() {
       </Link>
       . Coded by{" "}
       <Link
-        className={styles.link}
         href="https://www.frontendmentor.io/profile/marckesin"
         target="_blank"
         rel="noopener noreferrer"
