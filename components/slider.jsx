@@ -5,6 +5,7 @@ import variables from "../styles/variables.module.css";
 const StyledSlider = styled(Slider)({
   color: variables.green,
   height: "9px",
+  boxShadow: "none",
 
   "& .MuiSlider-rail": {
     backgroundColor: variables.lightGrayishBlue,
@@ -14,19 +15,31 @@ const StyledSlider = styled(Slider)({
   "& .MuiSlider-thumb": {
     height: "35px",
     width: "35px",
-    boxShadow: "rgba(21, 213, 194, 0.5) 1px 10px 25px 1px",
+    boxShadow: "rgba(21, 213, 194, 0.75) 1px 10px 25px 1px",
 
     "&:active": {
       backgroundColor: variables.greenActive,
-      boxShadow: "rgba(21, 213, 194, 0.5) 1px 10px 25px 1px",
+      boxShadow: "rgba(21, 213, 194, 0.85) 1px 10px 25px 1px",
+    },
+
+    "&::after": {
+      position: "absolute",
+      content: "''",
+      borderRadius: "50%",
+      width: "42px",
+      height: "42px",
+      top: "50%",
+      left: "49.5%",
+      background: "url('../icon-slider.svg') no-repeat",
+      backgroundPosition: "center",
     },
 
     "&:focusVisible": {
-      boxShadow: "rgba(21, 213, 194, 0.5) 1px 10px 25px 1px",
+      boxShadow: "rgba(21, 213, 194, 0.75) 1px 10px 25px 1px",
     },
 
     "&:hover": {
-      boxShadow: "rgba(21, 213, 194, 0.5) 1px 10px 25px 1px",
+      boxShadow: "rgba(21, 213, 194, 0.75) 1px 10px 25px 1px",
     },
   },
 
@@ -36,10 +49,16 @@ const StyledSlider = styled(Slider)({
 });
 
 // Slider component
-export default function UnstyledSlider() {
+export default function UnstyledSlider({ onChange, value }) {
   return (
     <Box sx={{ width: "100%" }}>
-      <StyledSlider defaultValue={0} />
+      <StyledSlider
+        value={value}
+        min={8}
+        max={36}
+        defaultValue={8}
+        onChange={onChange}
+      />
     </Box>
   );
 }

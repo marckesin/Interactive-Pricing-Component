@@ -2,9 +2,10 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Slider from "../components/slider";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/system";
+import { useState } from "react";
+import Slider from "../components/slider";
 import styles from "../styles/Home.module.css";
 import variables from "../styles/variables.module.css";
 
@@ -62,11 +63,33 @@ const StyledListItem = styled(ListItem)({
 // Card pricing component
 export default function Pricing() {
   const list = ["Unlimited websites", " 100% data ownership", "Email reports"];
+  const [value, setValue] = useState(8);
+  const [pageviews, setPageviews] = useState("10K");
+
+  const handleChange = event => {
+    const value = event.target.value;
+    if (typeof value === "number") {
+      if (value < 12) {
+        setPageviews("10K");
+      } else if (value < 16) {
+        setPageviews("50K");
+      } else if (value < 24) {
+        setPageviews("100K");
+      } else if (value < 36) {
+        setPageviews("500K");
+      } else {
+        setPageviews("1M");
+      }
+      setValue(value);
+    }
+  };
+
   return (
     <div className={styles.card}>
       <StackUp>
-        Pageviews $ /month Monthly Billing Yearly Billing 25% discount
-        <Slider min={8} step={4} max={36} />
+        <h3>{pageviews} PAGEVIEWS</h3>
+        $ /month Monthly Billing Yearly Billing 25% discount
+        <Slider onChange={handleChange} value={value} />
       </StackUp>
       <StackBottom direction="row" spacing={2}>
         <List>
