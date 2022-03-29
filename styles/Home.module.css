@@ -29,11 +29,16 @@
 
 .description {
   color: #858fad;
+  margin-bottom: 6rem;
+  font-weight: 800;
 }
 
 .heading {
   color: #293356;
   font-weight: 800;
+  font-size: 1.95rem;
+  margin-bottom: 1rem;
+  padding-top: 2.75rem;
 }
 
 .main {
@@ -44,6 +49,8 @@
   text-align: center;
   width: 36rem;
   margin: auto;
+  background: url("../public/pattern-circles.svg") no-repeat;
+  background-position: center top;
 }
 
 @media (max-width: 600px) {

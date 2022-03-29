@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Slider from "../components/slider";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/system";
 import styles from "../styles/Home.module.css";
@@ -27,13 +28,17 @@ const StyledButton = styled(Button)({
   },
 });
 
-const StyledStack = styled(Stack)({
+const StackBottom = styled(Stack)({
   borderTop: `3px solid ${variables.lightGrayishBlue}`,
   padding: "1rem 3rem 2.5rem",
 
   "@media(max-width: 600px)": {
     flexDirection: "column",
   },
+});
+
+const StackUp = styled(Stack)({
+  padding: "1rem 3rem 2.5rem",
 });
 
 const StyledListItemText = styled(ListItemText)({
@@ -59,8 +64,11 @@ export default function Pricing() {
   const list = ["Unlimited websites", " 100% data ownership", "Email reports"];
   return (
     <div className={styles.card}>
-      Pageviews $ /month Monthly Billing Yearly Billing 25% discount
-      <StyledStack direction="row" spacing={2}>
+      <StackUp>
+        Pageviews $ /month Monthly Billing Yearly Billing 25% discount
+        <Slider min={8} step={4} max={36} />
+      </StackUp>
+      <StackBottom direction="row" spacing={2}>
         <List>
           {list.map((item, index) => (
             <StyledListItem key={index}>
@@ -77,7 +85,7 @@ export default function Pricing() {
           ))}
         </List>
         <StyledButton variant="contained">Start my trial</StyledButton>
-      </StyledStack>
+      </StackBottom>
     </div>
   );
 }

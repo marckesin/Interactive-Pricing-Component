@@ -4,12 +4,16 @@ $light-grayish-blue: hsl(224, 65%, 95%);
 $light-grayish-blue-1: hsl(223, 50%, 87%);
 $grayish-blue: hsl(225, 20%, 60%);
 $dark-desaturated-blue: hsl(227, 35%, 25%);
+$green: hsl(174, 82%, 46%);
+$green-active: hsl(174, 75%, 39%);
 
 :export {
   white: $white;
-  very-pale-blue: $very-pale-blue;
+  veryPaleBlue: $very-pale-blue;
   lightGrayishBlue: $light-grayish-blue;
   lightGrayishBlue1: $light-grayish-blue-1;
   grayishBlue: $grayish-blue;
   darkDesaturatedBlue: $dark-desaturated-blue;
+  green: $green;
+  greenActive: $green-active;
 }

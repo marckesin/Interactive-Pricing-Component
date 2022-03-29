@@ -37,11 +37,16 @@ $dark-desaturated-blue: hsl(227, 35%, 25%);
 
 .description {
   color: $grayish-blue;
+  margin-bottom: 6rem;
+  font-weight: 800;
 }
 
 .heading {
   color: $dark-desaturated-blue;
   font-weight: 800;
+  font-size: 1.95rem;
+  margin-bottom: 1rem;
+  padding-top: 2.75rem;
 }
 
 .main {
@@ -52,6 +57,8 @@ $dark-desaturated-blue: hsl(227, 35%, 25%);
   text-align: center;
   width: 36rem;
   margin: auto;
+  background: url("../public/pattern-circles.svg") no-repeat;
+  background-position: center top;
 }
 
 @media (max-width: 600px) {

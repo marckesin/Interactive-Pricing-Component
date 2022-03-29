@@ -1,10 +1,12 @@
 :export {
   white: white;
-  very-pale-blue: #fafbff;
+  veryPaleBlue: #fafbff;
   lightGrayishBlue: #eaeefb;
   lightGrayishBlue1: #cdd7ee;
   grayishBlue: #858fad;
   darkDesaturatedBlue: #293356;
+  green: #15d5c2;
+  greenActive: #19ae9f;
 }
 
 /*# sourceMappingURL=variables.module.css.map */
