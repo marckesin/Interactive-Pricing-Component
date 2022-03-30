@@ -6,7 +6,7 @@ import Slider from "../components/slider";
 import Stack from "@mui/material/Stack";
 import Switch from "../components/switch";
 import { styled } from "@mui/system";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import variables from "../styles/variables.module.css";
 
@@ -74,6 +74,7 @@ export default function Pricing() {
   const [pageviews, setPageviews] = useState("10K");
   const [price, setPrice] = useState(8.0);
   const [billing, setBilling] = useState(false);
+  const [size, setSize] = useState();
 
   // Handle change function for slide component
   const handleChange = event => {
@@ -107,6 +108,12 @@ export default function Pricing() {
     setBilling(checked);
   };
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setSize(window.innerWidth);
+    });
+  }, []);
+
   return (
     <div className={styles.card}>
       <StackUp>
@@ -127,7 +134,11 @@ export default function Pricing() {
           <p>Monthly Billing</p>
           <Switch checked={billing} onChange={handleSwitchChange} />
           <p>Yearly Billing</p>
-          <p className={styles.badge}>25% discount</p>
+          {size <= 600 ? (
+            <p className={styles.badge}>-25%</p>
+          ) : (
+            <p className={styles.badge}>25% discount</p>
+          )}
         </div>
       </StackUp>
       <StackBottom direction="row" spacing={2}>

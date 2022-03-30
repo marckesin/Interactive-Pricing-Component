@@ -138,6 +138,14 @@
     margin-bottom: 4rem;
   }
 
+  .discount {
+    margin: auto;
+    gap: 0.5rem;
+  }
+  .discount .badge {
+    font-size: 0.65rem;
+  }
+
   .heading {
     font-size: 1.5rem;
   }
