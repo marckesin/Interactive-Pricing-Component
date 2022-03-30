@@ -1,6 +1,7 @@
 .attribution {
   font-size: 0.8rem;
   text-align: center;
+  visibility: hidden;
 }
 .attribution a {
   color: #3e52a3;
@@ -57,7 +58,6 @@
   color: #293356;
   font-weight: 800;
   font-size: 1.95rem;
-  margin-bottom: 1rem;
   padding-top: 2.75rem;
 }
 

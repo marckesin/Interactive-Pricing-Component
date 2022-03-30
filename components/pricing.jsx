@@ -70,34 +70,54 @@ const StyledListItem = styled(ListItem)({
 // Card pricing component
 export default function Pricing() {
   const list = ["Unlimited websites", " 100% data ownership", "Email reports"];
-  const [value, setValue] = useState(10);
-  const [pageviews, setPageviews] = useState("10K");
-  const [price, setPrice] = useState(8.0);
-  const [billing, setBilling] = useState(false);
-  const [size, setSize] = useState();
+  const [values, setValues] = useState({
+    slider: 10,
+    pageviews: "10K",
+    price: 8.0,
+    billing: false,
+    size: 1360,
+  });
 
   // Handle change function for slide component
   const handleChange = event => {
-    const { value: slideValue } = event.target;
+    const { value: sliderValue } = event.target;
 
-    if (typeof slideValue === "number") {
-      if (slideValue < 12) {
-        setPageviews("10K");
-        setPrice(8);
-      } else if (slideValue < 16) {
-        setPageviews("50K");
-        setPrice(12);
-      } else if (slideValue < 24) {
-        setPageviews("100K");
-        setPrice(16);
-      } else if (slideValue < 36) {
-        setPageviews("500K");
-        setPrice(24);
+    if (typeof sliderValue === "number") {
+      if (sliderValue < 12) {
+        setValues(prevState => ({
+          ...prevState,
+          pageviews: "10K",
+          price: 8,
+        }));
+      } else if (sliderValue < 16) {
+        setValues(prevState => ({
+          ...prevState,
+          pageviews: "50K",
+          price: 12,
+        }));
+      } else if (sliderValue < 24) {
+        setValues(prevState => ({
+          ...prevState,
+          pageviews: "100K",
+          price: 16,
+        }));
+      } else if (sliderValue < 36) {
+        setValues(prevState => ({
+          ...prevState,
+          pageviews: "500K",
+          price: 24,
+        }));
       } else {
-        setPageviews("1M");
-        setPrice(36);
+        setValues(prevState => ({
+          ...prevState,
+          pageviews: "1M",
+          price: 36,
+        }));
       }
-      setValue(slideValue);
+      setValues(prevState => ({
+        ...prevState,
+        slider: sliderValue,
+      }));
     }
   };
 
@@ -105,12 +125,18 @@ export default function Pricing() {
   const handleSwitchChange = event => {
     const { checked } = event.target;
 
-    setBilling(checked);
+    setValues(prevState => ({
+      ...prevState,
+      billing: checked,
+    }));
   };
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setSize(window.innerWidth);
+      setValues(prevState => ({
+        ...prevState,
+        size: window.innerWidth,
+      }));
     });
   }, []);
 
@@ -118,23 +144,23 @@ export default function Pricing() {
     <div className={styles.card}>
       <StackUp>
         <div className={styles.price}>
-          <p className={styles.priceC1}>{pageviews} PAGEVIEWS</p>
+          <p className={styles.priceC1}>{values.pageviews} PAGEVIEWS</p>
           <div className={styles.priceSection}>
             <h2 className={styles.priceC2}>
               $
-              {billing
-                ? parseFloat(0.75 * price).toFixed(2)
-                : parseFloat(price).toFixed(2)}
+              {values.billing
+                ? parseFloat(0.75 * values.price).toFixed(2)
+                : parseFloat(values.price).toFixed(2)}
             </h2>
             <p>/month</p>
           </div>
-          <Slider onChange={handleChange} checked={value} />
+          <Slider onChange={handleChange} checked={values.slider} />
         </div>
         <div className={styles.discount}>
           <p>Monthly Billing</p>
-          <Switch checked={billing} onChange={handleSwitchChange} />
+          <Switch checked={values.billing} onChange={handleSwitchChange} />
           <p>Yearly Billing</p>
-          {size <= 600 ? (
+          {values.size <= 600 ? (
             <p className={styles.badge}>-25%</p>
           ) : (
             <p className={styles.badge}>25% discount</p>
