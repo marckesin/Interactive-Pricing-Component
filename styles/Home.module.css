@@ -1,5 +1,5 @@
 .attribution {
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 .attribution a {
@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 2rem 0.5rem;
   background: url("../public/bg-pattern.svg") no-repeat, #fafbff;
   background-size: contain;
 }
@@ -30,6 +30,27 @@
   color: #858fad;
   margin-bottom: 6rem;
   font-weight: 800;
+}
+
+.discount {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-right: 1rem;
+  align-items: center;
+}
+.discount p {
+  font-size: 0.9rem;
+  color: #858fad;
+  margin-bottom: 0;
+}
+.discount .badge {
+  color: #ff8c66;
+  background-color: rgba(255, 140, 102, 0.15);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 4rem;
 }
 
 .heading {
@@ -95,18 +116,34 @@
 
 .pricing {
   text-align: center;
-  width: 36rem;
+  width: 38rem;
   margin: auto;
   background: url("../public/pattern-circles.svg") no-repeat;
   background-position: center top;
 }
 
 @media (max-width: 600px) {
+  .attribution {
+    margin-top: 3rem;
+  }
+
   .container {
-    padding: 6rem 1.5rem;
+    height: 100%;
+    padding: 4rem 1.5rem 0.5rem;
+    background-size: unset;
+  }
+
+  .description {
+    padding: 0 3.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
   }
 
   .price {
+    margin-bottom: 2.7rem;
     gap: 1.5rem;
     grid-template-areas: "c1" "c3" "c2";
   }

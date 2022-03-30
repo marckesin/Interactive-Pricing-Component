@@ -53,13 +53,7 @@ const StyledSlider = styled(Slider)({
 export default function UnstyledSlider({ onChange, value }) {
   return (
     <Box className={styles.priceC3} sx={{ width: "100%" }}>
-      <StyledSlider
-        value={value}
-        min={8}
-        max={36}
-        defaultValue={8}
-        onChange={onChange}
-      />
+      <StyledSlider value={value} min={8} max={36} onChange={onChange} />
     </Box>
   );
 }

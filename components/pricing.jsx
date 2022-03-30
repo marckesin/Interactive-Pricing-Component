@@ -6,11 +6,12 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/system";
 import { useState } from "react";
 import Slider from "../components/slider";
+import Switch from "../components/switch";
 import styles from "../styles/Home.module.css";
 import variables from "../styles/variables.module.css";
 
 const StyledButton = styled(Button)({
-  height: "40%",
+  height: "3rem",
   width: "37%",
   textTransform: "none",
   backgroundColor: variables.darkDesaturatedBlue,
@@ -31,15 +32,21 @@ const StyledButton = styled(Button)({
 
 const StackBottom = styled(Stack)({
   borderTop: `3px solid ${variables.lightGrayishBlue}`,
-  padding: "1rem 3rem 2.5rem",
+  padding: "1rem 3rem 1.35rem",
 
   "@media(max-width: 600px)": {
     flexDirection: "column",
+    padding: "1rem 3rem 2.5rem",
+    gap: "1.5rem",
   },
 });
 
 const StackUp = styled(Stack)({
-  padding: "3.5rem 3rem",
+  padding: "3.5rem 3rem 2.85rem",
+
+  "@media(max-width: 600px)": {
+    padding: "2.5rem 1.5rem 2.5rem",
+  },
 });
 
 const StyledListItemText = styled(ListItemText)({
@@ -63,7 +70,7 @@ const StyledListItem = styled(ListItem)({
 // Card pricing component
 export default function Pricing() {
   const list = ["Unlimited websites", " 100% data ownership", "Email reports"];
-  const [value, setValue] = useState(8);
+  const [value, setValue] = useState(10);
   const [pageviews, setPageviews] = useState("10K");
   const [price, setPrice] = useState(8.0);
   const [billing, setBilling] = useState(false);
@@ -91,6 +98,13 @@ export default function Pricing() {
     }
   };
 
+  const handleSwitchChange = event => {
+    const switchState = event.target.checked;
+
+    setBilling(switchState);
+    console.log(event.target.checked);
+  };
+
   return (
     <div className={styles.card}>
       <StackUp>
@@ -105,9 +119,14 @@ export default function Pricing() {
             </h2>
             <p>/month</p>
           </div>
-          <Slider onChange={handleChange} value={value} />
+          <Slider onChange={handleChange} checked={value} />
         </div>
-        Monthly Billing Yearly Billing 25% discount
+        <div className={styles.discount}>
+          <p>Monthly Billing</p>
+          <Switch checked={billing} onChange={handleSwitchChange} />
+          <p>Yearly Billing</p>
+          <p className={styles.badge}>25% discount</p>
+        </div>
       </StackUp>
       <StackBottom direction="row" spacing={2}>
         <List>
