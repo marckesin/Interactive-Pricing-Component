@@ -2,11 +2,11 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Slider from "../components/slider";
 import Stack from "@mui/material/Stack";
+import Switch from "../components/switch";
 import { styled } from "@mui/system";
 import { useState } from "react";
-import Slider from "../components/slider";
-import Switch from "../components/switch";
 import styles from "../styles/Home.module.css";
 import variables from "../styles/variables.module.css";
 
@@ -75,34 +75,36 @@ export default function Pricing() {
   const [price, setPrice] = useState(8.0);
   const [billing, setBilling] = useState(false);
 
+  // Handle change function for slide component
   const handleChange = event => {
-    const value = event.target.value;
-    if (typeof value === "number") {
-      if (value < 12) {
+    const { value: slideValue } = event.target;
+
+    if (typeof slideValue === "number") {
+      if (slideValue < 12) {
         setPageviews("10K");
         setPrice(8);
-      } else if (value < 16) {
+      } else if (slideValue < 16) {
         setPageviews("50K");
         setPrice(12);
-      } else if (value < 24) {
+      } else if (slideValue < 24) {
         setPageviews("100K");
         setPrice(16);
-      } else if (value < 36) {
+      } else if (slideValue < 36) {
         setPageviews("500K");
         setPrice(24);
       } else {
         setPageviews("1M");
         setPrice(36);
       }
-      setValue(value);
+      setValue(slideValue);
     }
   };
 
+  // Switch change function for toggle switch component
   const handleSwitchChange = event => {
-    const switchState = event.target.checked;
+    const { checked } = event.target;
 
-    setBilling(switchState);
-    console.log(event.target.checked);
+    setBilling(checked);
   };
 
   return (

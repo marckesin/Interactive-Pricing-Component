@@ -5,7 +5,7 @@ import variables from "../styles/variables.module.css";
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
 
-const StyledSwitch = styled(Switch)(({ theme }) => ({
+const StyledSwitch = styled(Switch)({
   width: 50,
   height: 26,
   padding: 0,
@@ -54,7 +54,7 @@ const StyledSwitch = styled(Switch)(({ theme }) => ({
     backgroundColor: variables.lightGrayishBlue1,
     boxSizing: "border-box",
   },
-}));
+});
 
 // Switch component
 export default function NewSwitch({ onChange, checked }) {
