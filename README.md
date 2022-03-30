@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [github.com/marckesin/Interactive-Pricing-Component](https://github.com/marckesin/Interactive-Pricing-Component)
+- Live Site URL: [interactive-pricing-component-marckesin.vercel.app/](https://interactive-pricing-component-marckesin.vercel.app/)
 
 ## My process
 
