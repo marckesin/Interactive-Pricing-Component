@@ -1,9 +1,10 @@
 import Slider from "@mui/material/Slider";
 import { Box, styled } from "@mui/system";
+import styles from "../styles/Home.module.css";
 import variables from "../styles/variables.module.css";
 
 const StyledSlider = styled(Slider)({
-  color: variables.green,
+  color: variables.strongCyan,
   height: "9px",
   boxShadow: "none",
 
@@ -51,7 +52,7 @@ const StyledSlider = styled(Slider)({
 // Slider component
 export default function UnstyledSlider({ onChange, value }) {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box className={styles.priceC3} sx={{ width: "100%" }}>
       <StyledSlider
         value={value}
         min={8}

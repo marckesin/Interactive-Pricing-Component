@@ -39,7 +39,7 @@ const StackBottom = styled(Stack)({
 });
 
 const StackUp = styled(Stack)({
-  padding: "1rem 3rem 2.5rem",
+  padding: "3.5rem 3rem",
 });
 
 const StyledListItemText = styled(ListItemText)({
@@ -65,20 +65,27 @@ export default function Pricing() {
   const list = ["Unlimited websites", " 100% data ownership", "Email reports"];
   const [value, setValue] = useState(8);
   const [pageviews, setPageviews] = useState("10K");
+  const [price, setPrice] = useState(8.0);
+  const [billing, setBilling] = useState(false);
 
   const handleChange = event => {
     const value = event.target.value;
     if (typeof value === "number") {
       if (value < 12) {
         setPageviews("10K");
+        setPrice(8);
       } else if (value < 16) {
         setPageviews("50K");
+        setPrice(12);
       } else if (value < 24) {
         setPageviews("100K");
+        setPrice(16);
       } else if (value < 36) {
         setPageviews("500K");
+        setPrice(24);
       } else {
         setPageviews("1M");
+        setPrice(36);
       }
       setValue(value);
     }
@@ -87,9 +94,20 @@ export default function Pricing() {
   return (
     <div className={styles.card}>
       <StackUp>
-        <h3>{pageviews} PAGEVIEWS</h3>
-        $ /month Monthly Billing Yearly Billing 25% discount
-        <Slider onChange={handleChange} value={value} />
+        <div className={styles.price}>
+          <p className={styles.priceC1}>{pageviews} PAGEVIEWS</p>
+          <div className={styles.priceSection}>
+            <h2 className={styles.priceC2}>
+              $
+              {billing
+                ? parseFloat(0.75 * price).toFixed(2)
+                : parseFloat(price).toFixed(2)}
+            </h2>
+            <p>/month</p>
+          </div>
+          <Slider onChange={handleChange} value={value} />
+        </div>
+        Monthly Billing Yearly Billing 25% discount
       </StackUp>
       <StackBottom direction="row" spacing={2}>
         <List>
