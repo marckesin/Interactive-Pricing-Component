@@ -3,7 +3,7 @@ import Switch from "@mui/material/Switch";
 import { styled } from "@mui/system";
 import variables from "../styles/variables.module.css";
 
-const label = { inputProps: { "aria-label": "Switch demo" } };
+const label = { inputProps: { "aria-label": "Switch discount" } };
 
 const StyledSwitch = styled(Switch)({
   width: 50,

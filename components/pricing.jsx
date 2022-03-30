@@ -11,7 +11,7 @@ import styles from "../styles/Home.module.css";
 import variables from "../styles/variables.module.css";
 
 const StyledButton = styled(Button)({
-  height: "3rem",
+  height: "2.85rem",
   width: "37%",
   textTransform: "none",
   backgroundColor: variables.darkDesaturatedBlue,

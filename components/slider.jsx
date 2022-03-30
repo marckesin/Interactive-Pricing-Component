@@ -35,10 +35,6 @@ const StyledSlider = styled(Slider)({
       backgroundPosition: "center",
     },
 
-    "&:focusVisible": {
-      boxShadow: "rgba(21, 213, 194, 0.75) 1px 10px 25px 1px",
-    },
-
     "&:hover": {
       boxShadow: "rgba(21, 213, 194, 0.75) 1px 10px 25px 1px",
     },
@@ -53,7 +49,13 @@ const StyledSlider = styled(Slider)({
 export default function UnstyledSlider({ onChange, value }) {
   return (
     <Box className={styles.priceC3} sx={{ width: "100%" }}>
-      <StyledSlider value={value} min={8} max={36} onChange={onChange} />
+      <StyledSlider
+        aria-label="Price"
+        value={value}
+        min={8}
+        max={36}
+        onChange={onChange}
+      />
     </Box>
   );
 }
